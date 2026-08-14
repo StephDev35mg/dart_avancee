@@ -36,4 +36,4 @@ jobs:
       - name: Build application
         run: |
           mkdir -p build
-          dart compile exe libs/main.dart -o build/taches
+          dart compile exe lib/main.dart -o build/taches
