@@ -1,0 +1,14 @@
+name: gestion_taches
+
+description: Application Dart de gestion de tâches.
+
+version: 1.0.0
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  path: ^1.9.1
+
+dev_dependencies:
+  test: ^1.26.0

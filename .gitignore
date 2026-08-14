@@ -1,0 +1,23 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Données locales générées
+data/taches.json
