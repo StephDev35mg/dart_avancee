@@ -10,10 +10,6 @@ class TacheService implements Repository<Tache> {
 
   TacheService(this.filePath);
 
-  // ==========================================
-  // Lire toutes les tâches
-  // ==========================================
-
   @override
   Future<List<Tache>> getAll() async {
     try {
@@ -47,10 +43,6 @@ class TacheService implements Repository<Tache> {
     }
   }
 
-  // ==========================================
-  // Récupérer une tâche par son ID
-  // ==========================================
-
   @override
   Future<Tache?> getById(int id) async {
     final taches = await getAll();
@@ -62,10 +54,6 @@ class TacheService implements Repository<Tache> {
     return taches[id];
   }
 
-  // ==========================================
-  // Ajouter une tâche
-  // ==========================================
-
   @override
   Future<void> save(Tache tache) async {
     final taches = await getAll();
@@ -74,10 +62,6 @@ class TacheService implements Repository<Tache> {
 
     await _writeFile(taches);
   }
-
-  // ==========================================
-  // Modifier une tâche
-  // ==========================================
 
   @override
   Future<void> update(int id, Tache tache) async {
@@ -90,10 +74,6 @@ class TacheService implements Repository<Tache> {
     await _writeFile(taches);
   }
 
-  // ==========================================
-  // Marquer comme terminée
-  // ==========================================
-
   Future<void> terminer(int id) async {
     final taches = await getAll();
 
@@ -103,10 +83,6 @@ class TacheService implements Repository<Tache> {
 
     await _writeFile(taches);
   }
-
-  // ==========================================
-  // Supprimer
-  // ==========================================
 
   @override
   Future<void> delete(int id) async {
@@ -119,10 +95,6 @@ class TacheService implements Repository<Tache> {
     await _writeFile(taches);
   }
 
-  // ==========================================
-  // Tri par priorité
-  // ==========================================
-
   Future<List<Tache>> trierParPriorite() async {
     final taches = await getAll();
 
@@ -130,10 +102,6 @@ class TacheService implements Repository<Tache> {
 
     return taches;
   }
-
-  // ==========================================
-  // Tri par date
-  // ==========================================
 
   Future<List<Tache>> trierParDate() async {
     final taches = await getAll();
@@ -148,19 +116,11 @@ class TacheService implements Repository<Tache> {
     return taches;
   }
 
-  // ==========================================
-  // Vérifier l'ID
-  // ==========================================
-
   void _validateId(int id, List<Tache> taches) {
     if (id < 0 || id >= taches.length) {
       throw TacheNotFoundException("La tâche avec l'ID $id n'existe pas.");
     }
   }
-
-  // ==========================================
-  // Écrire dans le fichier JSON
-  // ==========================================
 
   Future<void> _writeFile(List<Tache> taches) async {
     try {
