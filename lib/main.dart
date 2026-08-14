@@ -7,10 +7,6 @@ Future<void> main() async {
   final service = TacheService("data/taches.json");
 
   try {
-    // ======================================
-    // Création des tâches
-    // ======================================
-
     final tache1 = TacheNormale(
       "Apprendre Dart",
       Priorite.medium,
@@ -21,27 +17,15 @@ Future<void> main() async {
 
     final tache3 = TacheNormale("Lire le cours", Priorite.low);
 
-    // ======================================
-    // Ajout
-    // ======================================
-
     await service.save(tache1);
     await service.save(tache2);
     await service.save(tache3);
 
     print("Tâches ajoutées.\n");
 
-    // ======================================
-    // Afficher
-    // ======================================
-
     var taches = await service.getAll();
 
     afficherTaches(taches);
-
-    // ======================================
-    // Terminer une tâche
-    // ======================================
 
     await service.terminer(0);
 
@@ -51,19 +35,13 @@ Future<void> main() async {
 
     afficherTaches(taches);
 
-    // ======================================
-    // Trier par priorité
-    // ======================================
-
     print("\nTri par priorité :");
 
     taches = await service.trierParPriorite();
 
     afficherTaches(taches);
 
-    // ======================================
-    // Supprimer une tâche
-    // ======================================
+    
 
     await service.delete(1);
 

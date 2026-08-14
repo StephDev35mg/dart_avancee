@@ -1,4 +1,4 @@
-name: Dart CI Avanced
+name: Dart CI Advanced
 
 on:
   push:
@@ -32,3 +32,8 @@ jobs:
 
       - name: Run tests
         run: dart test
+
+      - name: Build application
+        run: |
+          mkdir -p build
+          dart compile exe libs/main.dart -o build/taches
